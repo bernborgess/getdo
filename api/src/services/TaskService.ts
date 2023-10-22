@@ -1,10 +1,17 @@
+import { Repository } from "../contracts/Repository";
 import { Task } from "../models/task";
 
 class TaskService {
 
-    async getTasks(): Promise<Task[]> {
+    private repository: Repository;
 
-        return [];
+    constructor(repository: Repository) {
+        this.repository = repository;
+    }
+
+    async getTasks(): Promise<Task[]> {
+        const tasks = await this.repository.tasks();
+        return tasks;
     }
 
 }
