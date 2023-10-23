@@ -28,11 +28,11 @@ describe("GET /tasks", () => {
 
         const res = await request(app).get("/tasks");
 
-        console.log(res.body);
+        const resTasks: Task[] = res.body.map(
+            task => ({ title: task.title, day: task.day })
+        );
 
-        console.log(tasks);
-
-        expect(res.body).toEqual(tasks);
+        expect(resTasks).toEqual(tasks);
     });
 
     afterAll(() => {
