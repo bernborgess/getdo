@@ -34,6 +34,17 @@ describe("GET /tasks", () => {
         expect(resTasks).toEqual(tasks);
     });
 
+    afterAll(() => {
+        server.close();
+    });
+
+});
+
+describe("POST /tasks", () => {
+    beforeAll(async () => {
+        server = app.listen(4000);
+    })
+
     it("SHOULD return a task after creating it", async () => {
         await db.task.deleteMany();
         const data = { title: "Cook rice and beans", day: 3 };
@@ -56,9 +67,9 @@ describe("GET /tasks", () => {
         expect(res.error.text).toBe("Something went wrong: Task title must not be empty");
     });
 
-
     afterAll(() => {
         server.close();
     });
 
 });
+
