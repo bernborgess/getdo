@@ -15,13 +15,13 @@ test("getTasks with one task in db returns list of one article", async () => {
 })
 
 class EmptyMockRepository implements Repository {
-    async tasks(): Promise<Task[]> {
+    tasks = async (): Promise<Task[]> => {
         return [];
     }
 }
 
 class SingleMockRepository implements Repository {
-    async tasks(): Promise<Task[]> {
+    tasks = async (): Promise<Task[]> => {
         return [
             new Task("Get the trash out", 3)
         ];

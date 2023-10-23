@@ -9,7 +9,7 @@ class TaskService {
         this.repository = repository;
     }
 
-    async getTasks(): Promise<Task[]> {
+    getTasks = async (): Promise<Task[]> => {
         const tasks = await this.repository.tasks();
         return tasks;
     }

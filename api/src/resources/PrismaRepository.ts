@@ -4,7 +4,7 @@ import { prismaClient } from "./PrismaClient";
 
 export class PrismaRepository implements Repository {
 
-    async tasks(): Promise<Task[]> {
+    tasks = async (): Promise<Task[]> => {
         return await prismaClient.task.findMany();
     }
 }
