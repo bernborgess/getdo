@@ -3,7 +3,6 @@ import { PrismaRepository } from "../resources/PrismaRepository";
 import TaskService from "../services/TaskService";
 
 class TaskController {
-
     private taskService: TaskService;
 
     constructor() {
@@ -15,6 +14,18 @@ class TaskController {
         const tasks = await this.taskService.getTasks();
         res.json(tasks);
     }
+
+    create = async (req: Request, res: Response) => {
+        try {
+            const task = await this.taskService.createTask(req.body);
+            res.json(task);
+        }
+        catch (err) {
+            res.status(400).send(`Something went wrong: ${err.message}`);
+        }
+    }
+
+
 }
 
 export default new TaskController()

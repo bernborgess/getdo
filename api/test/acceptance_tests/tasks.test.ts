@@ -6,12 +6,11 @@ import { prismaClient as db } from "../../src/resources/PrismaClient";
 let server;
 
 describe("GET /tasks", () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         server = app.listen(4000);
     })
 
     it("SHOULD return 200 Ok", async () => {
-        await db.task.deleteMany();
         const res = await request(app).get("/tasks");
         expect(res.status).toBe(200);
     });
@@ -35,8 +34,24 @@ describe("GET /tasks", () => {
         expect(resTasks).toEqual(tasks);
     });
 
+    it("SHOULD return a task after creating it", async () => {
+        await db.task.deleteMany();
+        const data = { title: "Cook rice and beans", day: 3 };
+        const res = await request(app).post("/tasks").send(data);
+        delete res.body["id"];
+        expect(res.body).toEqual(data);
+    });
+
+    it("SHOULD fail to create a task with negative days", async () => {
+        await db.task.deleteMany();
+        const data = { title: "Cook rice and beans", day: -3 };
+        const res = await request(app).post("/tasks").send(data);
+        expect(res.status).toBe(400);
+        expect(res.error.text).toBe("Something went wrong: Task day must be non-negative");
+    });
+
     afterAll(() => {
         server.close();
-    })
+    });
 
 });
