@@ -43,12 +43,19 @@ describe("GET /tasks", () => {
     });
 
     it("SHOULD fail to create a task with negative days", async () => {
-        await db.task.deleteMany();
         const data = { title: "Cook rice and beans", day: -3 };
         const res = await request(app).post("/tasks").send(data);
         expect(res.status).toBe(400);
         expect(res.error.text).toBe("Something went wrong: Task day must be non-negative");
     });
+
+    it("SHOULD fail to create a task with empty title", async () => {
+        const data = { title: "", day: 1 };
+        const res = await request(app).post("/tasks").send(data);
+        expect(res.status).toBe(400);
+        expect(res.error.text).toBe("Something went wrong: Task title must not be empty");
+    });
+
 
     afterAll(() => {
         server.close();
