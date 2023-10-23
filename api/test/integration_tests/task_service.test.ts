@@ -13,6 +13,7 @@ test("getTasks with no tasks in db returns empty list", async () => {
 
 test("getTasks with one task in db returns list of one task", async () => {
     await db.task.deleteMany();
+    await db.task.create({ data: { title: "Get the trash out", day: 2 } });
     const taskService = new TaskService(new PrismaRepository());
     const tasks: Task[] = await taskService.getTasks();
     expect(tasks.length).toBe(1);

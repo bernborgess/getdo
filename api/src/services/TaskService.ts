@@ -13,7 +13,7 @@ class TaskService {
         return tasks;
     }
 
-    async createTask(data: { title: string; day: number; }): Promise<Task> {
+    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
         const task = await this.repository.createTask(data);
         return task;
     }
