@@ -8,7 +8,7 @@ test("getTasks with no tasks in db returns empty list", async () => {
     expect(tasks.length).toBe(0);
 })
 
-test("getTasks with one task in db returns list of one article", async () => {
+test("getTasks with one task in db returns list of one task", async () => {
     const taskService = new TaskService(new SingleMockRepository());
     const tasks: Task[] = await taskService.getTasks();
     expect(tasks.length).toBe(1);
