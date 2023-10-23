@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { PrismaRepository } from "../resources/PrismaRepository";
 import TaskService from "../services/TaskService";
 
 class TaskController {
@@ -6,10 +7,11 @@ class TaskController {
     private taskService: TaskService;
 
     constructor() {
-        this.taskService = new TaskService();
+        const repo = new PrismaRepository();
+        this.taskService = new TaskService(repo);
     }
 
-    async index(req: Request, res: Response) {
+    index = async (req: Request, res: Response) => {
         const tasks = await this.taskService.getTasks();
         res.json(tasks);
     }
