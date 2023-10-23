@@ -14,16 +14,28 @@ test("getTasks with one task in db returns list of one article", async () => {
     expect(tasks.length).toBe(1);
 })
 
+test("createTask works with simple example", async () => {
+    const taskService = new TaskService(new EmptyMockRepository());
+    const data = { title: 'Task 1', day: 2 };
+    const task: Task = await taskService.createTask(data);
+    expect(task).toEqual(data);
+})
+
 class EmptyMockRepository implements Repository {
     tasks = async (): Promise<Task[]> => {
         return [];
+    }
+    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
+        return new Task(data.title, data.day);
     }
 }
 
 class SingleMockRepository implements Repository {
     tasks = async (): Promise<Task[]> => {
-        return [
-            new Task("Get the trash out", 3)
-        ];
+        return [new Task("Get the trash out", 3)];
     }
+    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
+        return new Task(data.title, data.day);
+    }
+
 }
