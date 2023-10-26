@@ -7,8 +7,12 @@ export class PrismaRepository implements Repository {
         return await prismaClient.task.findMany();
     }
 
-    async createTask(data: { title: string; day: number; }): Promise<Task> {
+    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
         return await prismaClient.task.create({ data });
+    }
+
+    deleteTask = async (id: string): Promise<void> => {
+        await prismaClient.task.delete({ where: { id } });
     }
 
 }

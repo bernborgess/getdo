@@ -28,6 +28,9 @@ class EmptyMockRepository implements Repository {
     createTask = async (data: { title: string; day: number; }): Promise<Task> => {
         return new Task(data.title, data.day);
     }
+    deleteTask = async (id: string): Promise<void> => {
+        return;
+    }
 }
 
 class SingleMockRepository implements Repository {
@@ -36,6 +39,9 @@ class SingleMockRepository implements Repository {
     }
     createTask = async (data: { title: string; day: number; }): Promise<Task> => {
         return new Task(data.title, data.day);
+    }
+    deleteTask = async (id: string): Promise<void> => {
+        return;
     }
 
 }

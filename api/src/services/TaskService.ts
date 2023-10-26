@@ -22,6 +22,10 @@ class TaskService {
         return task;
     }
 
+    deleteTask = async (id: string) => {
+        await this.repository.deleteTask(id);
+    }
+
 }
 
 export default TaskService;

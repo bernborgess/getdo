@@ -25,6 +25,10 @@ class TaskController {
         }
     }
 
+    delete = async (req: Request, res: Response) => {
+        await this.taskService.deleteTask(req.params.id);
+    }
+
 
 }
 

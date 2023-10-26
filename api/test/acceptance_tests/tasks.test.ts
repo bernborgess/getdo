@@ -73,3 +73,33 @@ describe("POST /tasks", () => {
 
 });
 
+describe("DELETE /tasks/:id", () => {
+    beforeAll(async () => {
+        server = app.listen(4000);
+    })
+
+    it("SHOULD return not tasks after deleting the single task", async () => {
+        await db.task.deleteMany();
+
+        // Create single task
+        const data = { title: "Cook rice and beans", day: 3 };
+        const res1 = await request(app).post("/tasks").send(data);
+        expect(res1.status).toBe(200);
+
+        const id = res1.body.id;
+
+        // Delete the only task
+        const res2 = await request(app).delete(`/tasks/${id}`);
+        expect(res2.status).toBe(200);
+
+        // Check task list is empty
+        const res3 = await request(app).get("/tasks");
+        expect(res3.body.length).toBe(0);
+    });
+
+
+    afterAll(() => {
+        server.close();
+    });
+});
+
