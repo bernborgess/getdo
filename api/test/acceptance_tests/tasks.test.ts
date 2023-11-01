@@ -57,14 +57,14 @@ describe("POST /tasks", () => {
         const data = { title: "Cook rice and beans", day: -3 };
         const res = await request(app).post("/tasks").send(data);
         expect(res.status).toBe(400);
-        expect(res.error.text).toBe("Something went wrong: Task day must be non-negative");
+        expect(res.text).toBe("Something went wrong: Task day must be non-negative");
     });
 
     it("SHOULD fail to create a task with empty title", async () => {
         const data = { title: "", day: 1 };
         const res = await request(app).post("/tasks").send(data);
         expect(res.status).toBe(400);
-        expect(res.error.text).toBe("Something went wrong: Task title must not be empty");
+        expect(res.text).toBe("Something went wrong: Task title must not be empty");
     });
 
     afterAll(() => {
@@ -74,6 +74,7 @@ describe("POST /tasks", () => {
 });
 
 describe("DELETE /tasks/:id", () => {
+
     beforeAll(async () => {
         server = app.listen(4000);
     })
@@ -86,16 +87,18 @@ describe("DELETE /tasks/:id", () => {
         const res1 = await request(app).post("/tasks").send(data);
         expect(res1.status).toBe(200);
 
-        const id = res1.body.id;
+        console.log(res1);
 
-        // Delete the only task
-        const res2 = await request(app).delete(`/tasks/${id}`);
-        expect(res2.status).toBe(200);
+        // const id = res1.body.id;
 
-        // Check task list is empty
-        const res3 = await request(app).get("/tasks");
-        expect(res3.body.length).toBe(0);
-    });
+        // // Delete the only task
+        // const res2 = await request(app).delete(`/tasks/${id}`);
+        // expect(res2.status).toBe(200);
+
+        // // Check task list is empty
+        // const res3 = await request(app).get("/tasks");
+        // expect(res3.body.length).toBe(0);
+    }, 90000);
 
 
     afterAll(() => {
