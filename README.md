@@ -21,11 +21,10 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] Listagem de Tarefas
+- [x] Criação de Tarefas com Conteúdo e Data
+- [x] Delecao de Tarefas
+- [ ] Marcar Tarefas como completo
 
 ## 💻 Pré-requisitos
 
@@ -38,7 +37,10 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 Para instalar o GetDo, siga estas etapas:
 
 ```
-<comando_de_instalação>
+cd api
+npm i
+cd ../client
+npm i
 ```
 
 ## ☕ Usando GetDo
@@ -46,10 +48,18 @@ Para instalar o GetDo, siga estas etapas:
 Para usar GetDo, siga estas etapas:
 
 ```
-<exemplo_de_uso>
+cd api
+npm run dev
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
+Em outro terminal abra:
+
+```
+cd client
+npm run dev
+```
+
+Lembre-se de criar o arquivo .env dentro das pastas api e client
 
 ## 🤝 Colaboradores
 
