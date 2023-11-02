@@ -5,7 +5,7 @@ import {
   createBrowserRouter
 } from "react-router-dom";
 
-import { Home } from "../../pages/Home";
+import Home from "../../pages/Home";
 import Navbar from "../components/Navbar";
 import NotFound from "../../pages/NotFound";
 
