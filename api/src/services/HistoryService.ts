@@ -14,6 +14,9 @@ class HistoryService {
     }
 
     createHistory = async (data: { title: string, finishedAt: Date }): Promise<History> => {
+        if (data.title.length === 0)
+            throw new Error("Task title must not be empty");
+
         return await this.repository.createHistory(data);
     }
 
