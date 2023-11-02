@@ -2,10 +2,11 @@ import {
   Route,
   RouterProvider,
   Routes,
-  createBrowserRouter,
+  createBrowserRouter
 } from "react-router-dom";
 
 import { Home } from "../../pages/Home";
+import Navbar from "../components/Navbar";
 
 const router = createBrowserRouter([
   { path: "*", Component: Root },
@@ -18,7 +19,9 @@ export default function App() {
 function Root() {
   return (
     <Routes>
-      <Route index element={<Home />} />
+      <Route path="/" element={<Navbar />}>
+        <Route index element={< Home />} />
+      </Route>
     </Routes>
   )
 }
