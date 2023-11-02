@@ -15,3 +15,9 @@ model Task {
   title String
   day   Int
 }
+
+model History {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  finishedAt DateTime @default(now())
+}
