@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { PrismaRepository } from "../resources/PrismaRepository";
+import { PrismaTaskRepository } from "../resources/PrismaTaskRepository";
 import TaskService from "../services/TaskService";
 
 class TaskController {
     private taskService: TaskService;
 
     constructor() {
-        const repo = new PrismaRepository();
+        const repo = new PrismaTaskRepository();
         this.taskService = new TaskService(repo);
     }
 
@@ -32,4 +32,4 @@ class TaskController {
 
 }
 
-export default new TaskController()
+export default new TaskController();

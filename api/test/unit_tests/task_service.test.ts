@@ -1,4 +1,4 @@
-import { Repository } from "../../src/contracts/Repository";
+import { TaskRepository } from "../../src/contracts/TaskRepository";
 import { Task } from "../../src/models/task";
 import TaskService from "../../src/services/TaskService";
 
@@ -21,7 +21,7 @@ test("createTask works with simple example", async () => {
     expect(task).toEqual(data);
 })
 
-class EmptyMockRepository implements Repository {
+class EmptyMockRepository implements TaskRepository {
     tasks = async (): Promise<Task[]> => {
         return [];
     }
@@ -33,7 +33,7 @@ class EmptyMockRepository implements Repository {
     }
 }
 
-class SingleMockRepository implements Repository {
+class SingleMockRepository implements TaskRepository {
     tasks = async (): Promise<Task[]> => {
         return [new Task("Get the trash out", 3)];
     }

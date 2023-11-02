@@ -1,10 +1,10 @@
-import { Repository } from "../contracts/Repository";
+import { TaskRepository } from "../contracts/TaskRepository";
 import { Task } from "../models/task";
 
 class TaskService {
-    private repository: Repository;
+    private repository: TaskRepository;
 
-    constructor(repository: Repository) {
+    constructor(repository: TaskRepository) {
         this.repository = repository;
     }
 
