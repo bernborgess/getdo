@@ -1,5 +1,7 @@
 import EastIcon from '@mui/icons-material/East';
-import SyncIcon from '@mui/icons-material/Sync';
+import AddIcon from '@mui/icons-material/Add';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import {
   Box,
   Button,
@@ -7,6 +9,8 @@ import {
   CardActions,
   CardHeader,
   Divider,
+  IconButton,
+  Stack,
   SvgIcon,
   Table,
   TableBody,
@@ -17,6 +21,8 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getTasks } from "../../services/getTasks";
+import { deleteTask } from "../../services/deleteTask";
+import { completeTask } from "../../services/completeTask";
 import { Task } from '../../types/task';
 import { useEffect, useState } from "react";
 
@@ -32,21 +38,36 @@ export default function OverviewLatestTasks() {
   async function refreshTasks() {
     setTasks(await getTasks());
   }
+
+  async function handleDelete(id: string) {
+    const res = await deleteTask(id);
+    console.log(res);
+    await refreshTasks();
+  }
+
+  async function handleComplete(id: string) {
+    const res = await completeTask(id);
+    console.log(res);
+    await refreshTasks();
+  }
+
   return (
     <Card sx={{ height: '100%' }}>
       <CardHeader title="Latest Tasks"
         action={(
+
           <Button
-            color="inherit"
+            color="secondary"
             size="small"
-            onClick={() => refreshTasks()}
+            onClick={() => navigate("newTask")}
             startIcon={(
               <SvgIcon fontSize="small">
-                <SyncIcon />
+                <AddIcon />
               </SvgIcon>
             )}
+            variant="contained"
           >
-            Sync
+            Add Task
           </Button>
         )}
       />
@@ -72,6 +93,11 @@ export default function OverviewLatestTasks() {
               <TableCell>
                 <Typography variant="h6" sx={{ color: "#3E0554" }}>
                   Status
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="h6" sx={{ color: "#3E0554" }}>
+                  Ações
                 </Typography>
               </TableCell>
             </TableRow>
@@ -115,6 +141,18 @@ export default function OverviewLatestTasks() {
                     >
                       arrumar
                     </Typography>     </TableCell>
+                  <TableCell>
+                    <Stack direction="row" spacing={1}>
+                      <IconButton aria-label="delete"
+                        onClick={() => handleDelete(task.id)}>
+                        <DeleteOutlineIcon />
+                      </IconButton>
+                      <IconButton color="secondary" aria-label="add an alarm"
+                        onClick={() => handleComplete(task.id)}>
+                        <CheckCircleOutlineIcon />
+                      </IconButton>
+                    </Stack>
+                  </TableCell>
                 </TableRow>
               );
             })}
