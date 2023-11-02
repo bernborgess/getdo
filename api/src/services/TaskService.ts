@@ -1,10 +1,10 @@
-import { Repository } from "../contracts/Repository";
+import { TaskRepository } from "../contracts/TaskRepository";
 import { Task } from "../models/task";
 
 class TaskService {
-    private repository: Repository;
+    private repository: TaskRepository;
 
-    constructor(repository: Repository) {
+    constructor(repository: TaskRepository) {
         this.repository = repository;
     }
 
@@ -13,7 +13,7 @@ class TaskService {
         return tasks;
     }
 
-    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
+    createTask = async (data: { title: string, day: number }): Promise<Task> => {
         if (data.title.length === 0)
             throw new Error("Task title must not be empty");
         if (data.day < 0)
