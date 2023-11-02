@@ -1,4 +1,5 @@
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
 interface OverviewTypes {
@@ -41,7 +42,33 @@ export default function OverviewTotalProfit({ sx, value }: OverviewTypes) {
             </SvgIcon>
           </Avatar>
         </Stack>
+        <Stack
+          alignItems="center"
+          direction="row"
+          spacing={2}
+          sx={{ mt: 2 }}
+        >
+
+          <Stack
+            alignItems="center"
+            direction="row"
+            spacing={0.5}
+          >
+            <SvgIcon
+              color={'success'}
+              fontSize="small"
+            >
+              {<FavoriteBorderIcon />}
+            </SvgIcon>
+          </Stack>
+          <Typography
+            color="text.secondary"
+            variant="caption"
+          >
+            Dedication extreme
+          </Typography>
+        </Stack>
       </CardContent>
-    </Card>
+    </Card >
   );
 }
