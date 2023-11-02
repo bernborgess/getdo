@@ -3,6 +3,7 @@ import OverviewBudget from '../../utils/components/OverviewBudget';
 import OverviewTotalCustomers from '../../utils/components/OverviewTotalCustomers';
 import OverviewTasksProgress from '../../utils/components/OverviewTasksProgress';
 import OverviewTotalProfit from '../../utils/components/OverviewTotalProfit';
+import OverviewLatestTasks from '../../utils/components/OverviewLatestTasks';
 
 export default function Home() {
   return (
@@ -63,6 +64,13 @@ export default function Home() {
               sx={{ height: '100%' }}
               value="75 days"
             />
+          </Grid>
+          <Grid
+            xs={12}
+            md={12}
+            lg={12}
+          >
+            <OverviewLatestTasks />
           </Grid>
         </Grid>
       </Container>

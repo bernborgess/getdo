@@ -17,8 +17,8 @@ function DrawerComponent() {
 
   const routes = [
     { to: "/", text: "Home" },
-    { to: "CCCCCC", text: "Create New Task" },
-    { to: "DDDDDD", text: "History" }
+    { to: "newTask", text: "Create New Task" },
+    { to: "history", text: "History" }
   ]
 
   const { pathname } = useLocation();
@@ -38,7 +38,7 @@ function DrawerComponent() {
                 <ListItemText>
                   <NavButtonText
                     $current={route.to === pathname}
-                    to="/">
+                    to={route.to}>
                     {route.text}
                   </NavButtonText>
                 </ListItemText>

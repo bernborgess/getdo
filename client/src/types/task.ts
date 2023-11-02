@@ -1,10 +1,10 @@
 
-interface NewTask {
+export interface NewTask {
     title: string;
     day: number;
 }
 
 
-interface Task extends NewTask {
+export interface Task extends NewTask {
     id: string;
 }
