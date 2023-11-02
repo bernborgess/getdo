@@ -11,6 +11,14 @@ import {
 } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 import DrawerComponent from "./Drawer";
+import { styled } from "@mui/system";
+
+const NavButton = styled("div")({
+  display: "flex",
+  textTransform: "capitalize",
+  color: "black"
+})
+
 
 function Navbar() {
   const navigate = useNavigate();
@@ -27,8 +35,10 @@ function Navbar() {
           ) : (
 
             <Stack direction="row" spacing={2}>
-              <Button color="secondary"
-                onClick={() => navigate("/")}><Typography>Home</Typography></Button>
+
+              <NavButton onClick={() => navigate("/")} >
+                Home
+              </NavButton>
 
               <Button color="secondary"
                 onClick={() => navigate("/CCCCCC")}><Typography>Create New Task</Typography></Button>
