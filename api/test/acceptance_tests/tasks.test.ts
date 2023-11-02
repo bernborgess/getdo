@@ -95,9 +95,41 @@ describe("DELETE /tasks/:id", () => {
 
     }, 90000);
 
+    afterAll(() => {
+        server.close();
+    });
+});
+
+describe("PATCH /tasks/:id", () => {
+
+    beforeAll(async () => {
+        server = app.listen(4000);
+    })
+
+    it("SHOULD mark a single task as complete", async () => {
+        await db.task.deleteMany();
+        await db.history.deleteMany();
+
+        // Create single task
+        const data = { title: "Cook rice and beans", day: 3 };
+        const res1 = await request(app).post("/tasks").send(data);
+        expect(res1.status).toBe(200);
+
+        const id = res1.body.id;
+
+        // Delete the only task
+        const res2 = await request(app).patch(`/tasks/${id}`);
+        expect(res2.status).toBe(200);
+
+        // Check if history was registered
+        const res3 = await request(app).get("/history");
+        expect(res3.body.length).toBe(1);
+
+    }, 90000);
 
     afterAll(() => {
         server.close();
     });
 });
+
 

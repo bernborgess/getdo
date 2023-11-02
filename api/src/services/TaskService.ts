@@ -13,7 +13,7 @@ class TaskService {
         return tasks;
     }
 
-    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
+    createTask = async (data: { title: string, day: number }): Promise<Task> => {
         if (data.title.length === 0)
             throw new Error("Task title must not be empty");
         if (data.day < 0)

@@ -13,6 +13,10 @@ class HistoryService {
         return histories;
     }
 
+    createHistory = async (data: { title: string, finishedAt: Date }): Promise<History> => {
+        return await this.repository.createHistory(data);
+    }
+
 }
 
 export default HistoryService;
