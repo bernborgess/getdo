@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   CssBaseline,
   Stack,
   Toolbar,
@@ -38,6 +39,22 @@ function Navbar() {
           {isMobile ? (<DrawerComponent />) : (
 
             <Stack direction="row" spacing={2}>
+              <Box
+                sx={{
+                  mb: 2,
+                  textAlign: 'center'
+                }}
+              >
+                <img
+                  alt="Under development"
+                  src="/getdo.svg"
+                  style={{
+                    display: 'inline-block',
+                    maxWidth: '100%',
+                    width: 30
+                  }}
+                />
+              </Box>
               {routes.map(route => (
                 <NavButtonText
                   $current={route.to === pathname}
