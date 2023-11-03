@@ -28,6 +28,9 @@ test("createTask works with simple example", async () => {
 })
 
 class EmptyMockRepository implements TaskRepository {
+    getTask(id: string): Promise<Task> {
+        throw new Error("Method not implemented.");
+    }
     tasks = async (): Promise<Task[]> => {
         return [];
     }
@@ -42,6 +45,9 @@ class EmptyMockRepository implements TaskRepository {
 }
 
 class SingleMockRepository implements TaskRepository {
+    getTask(id: string): Promise<Task> {
+        throw new Error("Method not implemented.");
+    }
     tasks = async (): Promise<Task[]> => {
         const data: NewTask = {
             day: 3,
