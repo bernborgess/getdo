@@ -1,70 +1,101 @@
-import { FormEvent, useState } from "react";
-import { createTask } from "../../services/createTask";
-import { deleteTask } from "../../services/deleteTask";
-import { getTasks } from "../../services/getTasks";
-import { Task } from "../../types/task";
+import React from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  Paper,
+  TextField,
+} from '@mui/material';
+import { NewTask, emptyData } from '../../types/task';
+import { useNavigate } from 'react-router-dom';
+import { createTask } from '../../services/createTask';
 
 export function CreateTask() {
-  const [tasks, setTasks] = useState([] as Task[]);
-  const [day, setDay] = useState(0);
-  const [title, setTitle] = useState("");
+  const [newTask, setNewTask] = React.useState<NewTask>(emptyData);
+  const navigate = useNavigate();
 
-  async function refreshTasks() {
-    setTasks(await getTasks());
+  function updateData(addNewTask: Partial<NewTask>) {
+    setNewTask({ ...newTask, ...addNewTask });
   }
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    await createTask({ day, title });
-    await refreshTasks();
-  }
-
-  async function handleDelete(id: string) {
-    const res = await deleteTask(id);
-    console.log(res);
-    await refreshTasks();
+  function handleSubmit() {
+    createTask(newTask);
+    navigate("/");
   }
 
   return (
-    <div style={{ flex: 1, width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }} >
-      <div>
-        <h1> Home </h1>
-      </div >
+    <div>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          display: 'flex',
+          justifyContent: 'center',
+          p: 1,
+          m: 2,
+          borderRadius: 1,
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <Paper elevation={3} sx={{ p: 2 }}>
+          <FormControl defaultValue="" required>
+            <div>
+              <TextField
+                id="standard-search"
+                label="Title"
+                type="string"
+                variant="standard"
+                required
+                InputLabelProps={{ shrink: true }}
+                onChange={(e) => updateData({ title: e.target.value })}
+              />
+            </div>
+            <div>
 
-      <div >
-        <div
-          style={{ display: "flex", gap: 100, justifyContent: "space-between" }}
-        >
-          <h3>DAY</h3>
-          <h3>TITLE</h3>
-          <h3>DELETE</h3>
-        </div>
+              <TextField
+                id="standard-search"
+                label=" Description"
+                type="string"
+                variant="standard"
+                InputLabelProps={{ shrink: true }}
+                onChange={(e) => updateData({ description: e.target.value })}
+              />
+            </div>
+            <div>
+              <TextField
+                id="standard-search"
+                label="Day"
+                type="number"
+                variant="standard"
+                InputLabelProps={{ shrink: true }}
+                onChange={(e) => updateData({ day: Number(e.target.value) })}
+              />
+            </div>
+            <div>
 
-        {tasks.map((task, index) => (
-          <div key={index}
-            style={{ display: "flex", gap: 100, justifyContent: "space-between" }}
-          >
-            <h3>{task.day}</h3>
-            <h3>{task.title}</h3>
-            <h3 onClick={() => handleDelete(task.id)}>X</h3>
-          </div>)
-        )}
-        <button onClick={refreshTasks}>REFRESH LIST</button>
-      </div>
-
-
-      <form onSubmit={handleSubmit}>
-        <label> Title:
-          <input type="text" name="title"
-            value={title} onChange={(e) => setTitle(e.target.value)} />
-        </label>
-        <label> Day:
-          <input type="number" name="day"
-            value={day} onChange={(e) => setDay(Number(e.target.value))}
-          />
-        </label>
-        <input type="submit" value="Create" />
-      </form>
+              <TextField
+                id="standard-search"
+                label="Level"
+                type="string"
+                variant="standard"
+                InputLabelProps={{ shrink: true }}
+                onChange={(e) => updateData({ level: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+              <Button
+                size="small"
+                variant="contained"
+                color="success"
+                onClick={handleSubmit}
+                disabled={newTask.day == 0}>Salvar Dados</Button>
+            </div>
+          </FormControl>
+        </Paper>
+      </Box >
     </div>
+
   )
 }
+
+
