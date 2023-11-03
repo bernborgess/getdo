@@ -1,5 +1,5 @@
 import { HistoryRepository } from "../../src/contracts/HistoryRepository";
-import { History } from "../../src/models/history";
+import { History, NewHistory } from "../../src/models/history";
 import HistoryService from "../../src/services/HistoryService";
 
 test("getHistory with no entry in db returns empty list", async () => {
@@ -15,7 +15,7 @@ test("getHistory with one entry in db returns list of one history", async () => 
 })
 
 class EmptyMockHistoryRepository implements HistoryRepository {
-    createHistory(data: { title: string; finishedAt: Date; }): Promise<History> {
+    createHistory(data: NewHistory): Promise<History> {
         throw new Error("Method not implemented.");
     }
     histories = async (): Promise<History[]> => {
@@ -24,11 +24,17 @@ class EmptyMockHistoryRepository implements HistoryRepository {
 }
 
 class SingleMockHistoryRepository implements HistoryRepository {
-    createHistory(data: { title: string; finishedAt: Date; }): Promise<History> {
+    createHistory(data: NewHistory): Promise<History> {
         throw new Error("Method not implemented.");
     }
     histories = async (): Promise<History[]> => {
-        const history = new History("Wash the shirts", new Date("2023-11-02T03:24:00"));
+        const data: NewHistory = {
+            description: "Please use soap",
+            finishedAt: new Date("2023-11-02T03:24:00"),
+            level: 3,
+            title: "Wash the shirts"
+        }
+        const history = new History(data);
         return [history];
     }
 }

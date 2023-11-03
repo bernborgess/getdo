@@ -1,6 +1,6 @@
-import { History } from "../models/history";
+import { History, NewHistory } from "../models/history";
 
 export interface HistoryRepository {
     histories(): Promise<History[]>;
-    createHistory(data: { title: string, finishedAt: Date }): Promise<History>
+    createHistory(data: NewHistory): Promise<History>
 }

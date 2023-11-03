@@ -1,5 +1,5 @@
 import { HistoryRepository } from "../contracts/HistoryRepository";
-import { History } from "../models/history";
+import { History, NewHistory } from "../models/history";
 
 class HistoryService {
     private repository: HistoryRepository;
@@ -13,7 +13,7 @@ class HistoryService {
         return histories;
     }
 
-    createHistory = async (data: { title: string, finishedAt: Date }): Promise<History> => {
+    createHistory = async (data: NewHistory): Promise<History> => {
         if (data.title.length === 0)
             throw new Error("Task title must not be empty");
 

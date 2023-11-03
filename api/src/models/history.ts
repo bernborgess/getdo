@@ -1,10 +1,18 @@
 
-export class History {
-    title: string;
+export interface NewHistory {
+    description: string;
     finishedAt: Date
+    level: number;
+    title: string;
+}
 
-    constructor(title: string, finishedAt: Date) {
-        this.title = title;
-        this.finishedAt = finishedAt;
+export class History {
+    description: string;
+    finishedAt: Date
+    level: number;
+    title: string;
+
+    constructor(data: NewHistory) {
+        Object.assign(this, data);
     }
 }
