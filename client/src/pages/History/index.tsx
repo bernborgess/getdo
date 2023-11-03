@@ -12,11 +12,11 @@ import {
   Typography
 } from '@mui/material';
 import { getHistory } from "../../services/getHistory";
-import { Task } from '../../types/task';
+import { HistoryTask } from '../../types/history';
 import { useEffect, useState } from "react";
 
 export function History() {
-  const [tasks, setTasks] = useState([] as Task[]);
+  const [tasks, setTasks] = useState([] as HistoryTask[]);
 
   useEffect(() => {
     refreshTasks();
@@ -24,6 +24,7 @@ export function History() {
 
   async function refreshTasks() {
     setTasks(await getHistory());
+    console.log(tasks)
   }
   return (
     <Box
@@ -62,12 +63,12 @@ export function History() {
                       </TableCell>
                       <TableCell sortDirection="desc">
                         <Typography variant="h6" sx={{ color: "#3E0554" }}>
-                          Date
+                          Conclusion
                         </Typography>
                       </TableCell>
                       <TableCell>
                         <Typography variant="h6" sx={{ color: "#3E0554" }}>
-                          Status
+                          Level
                         </Typography>
                       </TableCell>
                     </TableRow>
@@ -93,7 +94,7 @@ export function History() {
                               gutterBottom
                               variant="overline"
                             >
-                              arrumar
+                              {task.description}
                             </Typography>     </TableCell>
                           <TableCell>
                             <Typography
@@ -101,7 +102,7 @@ export function History() {
                               gutterBottom
                               variant="overline"
                             >
-                              {task.day}
+                              {(new Date(task.finish)).toLocaleDateString("pt-PT")}
                             </Typography>     </TableCell>
                           <TableCell>
                             <Typography
@@ -109,7 +110,7 @@ export function History() {
                               gutterBottom
                               variant="overline"
                             >
-                              arrumar
+                              {task.level}
                             </Typography>     </TableCell>
                         </TableRow>
                       );

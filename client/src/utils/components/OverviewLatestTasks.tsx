@@ -37,6 +37,7 @@ export default function OverviewLatestTasks() {
 
   async function refreshTasks() {
     setTasks(await getTasks());
+    console.log(tasks);
   }
 
   async function handleDelete(id: string) {
@@ -128,7 +129,7 @@ export default function OverviewLatestTasks() {
                       gutterBottom
                       variant="overline"
                     >
-                      arrumar
+                      {task.description}
                     </Typography>     </TableCell>
                   <TableCell>
                     <Typography
@@ -136,7 +137,7 @@ export default function OverviewLatestTasks() {
                       gutterBottom
                       variant="overline"
                     >
-                      12/12/2012
+                      {(new Date(task.deadline)).toLocaleDateString("pt-PT")}
                     </Typography>     </TableCell>
                   <TableCell>
                     <Typography
@@ -152,7 +153,7 @@ export default function OverviewLatestTasks() {
                       gutterBottom
                       variant="overline"
                     >
-                      arrumar
+                      {task.level}
                     </Typography>     </TableCell>
                   <TableCell>
                     <Stack direction="row" spacing={1}>
