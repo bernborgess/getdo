@@ -27,9 +27,9 @@ O GetDo utiliza um conjunto de tecnologias modernas para fornecer uma experiênc
 
 - React: é a base do desenvolvimento front-end, permitindo a criação de uma aplicação web dinâmica e responsiva. Ele ajuda a organizar o código de maneira eficiente, oferecendo atualizações em tempo real e uma experiência interativa para os usuários.
 
-- TypeScript:foi empregado para melhorar a escalabilidade e manutenibilidade do código. Com a adição de tipos estáticos, proporciona um desenvolvimento mais seguro, com detecção de erros durante a fase de desenvolvimento.
+- TypeScript: foi empregado para melhorar a escalabilidade e manutenibilidade do código. Com a adição de tipos estáticos, proporciona um desenvolvimento mais seguro, com detecção de erros durante a fase de desenvolvimento.
 
-- MongoDB:é utilizado para armazenar os dados do aplicativo, sua estrutura orientada a documentos permite uma modelagem de dados ágil e eficaz, facilitando a manipulação e o armazenamento das informações das tarefas e usuários do sistema.
+- MongoDB: é utilizado para armazenar os dados do aplicativo, sua estrutura orientada a documentos permite uma modelagem de dados ágil e eficaz, facilitando a manipulação e o armazenamento das informações das tarefas e usuários do sistema.
 
 - Prisma: é integrado para facilitar as consultas e operações com o banco de dados. Ele oferece um conjunto de ferramentas que simplificam a interação com o banco de dados, permitindo um acesso mais intuitivo e eficiente aos dados.
 
