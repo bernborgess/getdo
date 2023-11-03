@@ -15,7 +15,6 @@ export const emptyData = {
     title: "", 
 }
 
-
 export interface Task extends NewTask {
     id: string;
 }
