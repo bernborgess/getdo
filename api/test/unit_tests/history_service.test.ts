@@ -15,12 +15,18 @@ test("getHistory with one entry in db returns list of one history", async () => 
 })
 
 class EmptyMockHistoryRepository implements HistoryRepository {
+    createHistory(data: { title: string; finishedAt: Date; }): Promise<History> {
+        throw new Error("Method not implemented.");
+    }
     histories = async (): Promise<History[]> => {
         return [];
     }
 }
 
 class SingleMockHistoryRepository implements HistoryRepository {
+    createHistory(data: { title: string; finishedAt: Date; }): Promise<History> {
+        throw new Error("Method not implemented.");
+    }
     histories = async (): Promise<History[]> => {
         const history = new History("Wash the shirts", new Date("2023-11-02T03:24:00"));
         return [history];

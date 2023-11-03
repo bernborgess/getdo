@@ -1,5 +1,5 @@
 import { TaskRepository } from "../contracts/TaskRepository";
-import { Task } from "../models/task";
+import { NewTask, Task } from "../models/task";
 import { prismaClient } from "./PrismaClient";
 
 export class PrismaTaskRepository implements TaskRepository {
@@ -7,7 +7,7 @@ export class PrismaTaskRepository implements TaskRepository {
         return await prismaClient.task.findMany();
     }
 
-    createTask = async (data: { title: string; day: number; }): Promise<Task> => {
+    createTask = async (data: NewTask): Promise<Task> => {
         return await prismaClient.task.create({ data });
     }
 

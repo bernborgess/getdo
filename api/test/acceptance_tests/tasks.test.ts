@@ -1,13 +1,21 @@
 import * as request from "supertest";
 import { app } from "../../src/index";
-import { Task } from "../../src/models/task";
+import { NewTask } from "../../src/models/task";
 import { prismaClient as db } from "../../src/resources/PrismaClient";
 
 let server;
 
+function tidyTaskForExpect(dirtyTask): NewTask {
+    delete dirtyTask.id;
+    return {
+        ...dirtyTask,
+        deadline: new Date(dirtyTask.deadline)
+    }
+}
+
 describe("GET /tasks", () => {
     beforeAll(async () => {
-        server = app.listen(4000);
+        server = app.listen(0);
     })
 
     it("SHOULD return 200 Ok", async () => {
@@ -16,9 +24,21 @@ describe("GET /tasks", () => {
     });
 
     it("SHOULD return a list of 2 tasks WHEN db contains 2 tasks", async () => {
-        const tasks = [
-            new Task("Cook rice and beans", 3),
-            new Task("Take the trash out", 4)
+        const tasks: NewTask[] = [
+            {
+                day: 3,
+                deadline: new Date("2023-11-02T03:24:00"),
+                description: "",
+                level: 1,
+                title: "Cook rice and beans",
+            },
+            {
+                day: 4,
+                deadline: new Date("2023-11-02T03:24:00"),
+                description: "",
+                level: 3,
+                title: "Take the trash out",
+            }
         ];
 
         await db.task.deleteMany();
@@ -26,12 +46,8 @@ describe("GET /tasks", () => {
         await db.task.create({ data: tasks[1] })
 
         const res = await request(app).get("/tasks");
-
-        const resTasks: Task[] = res.body.map(
-            task => ({ title: task.title, day: task.day })
-        );
-
-        expect(resTasks).toEqual(tasks);
+        const received = res.body.map(tidyTaskForExpect)
+        expect(received).toEqual(tasks);
     });
 
     afterAll(() => {
@@ -42,19 +58,36 @@ describe("GET /tasks", () => {
 
 describe("POST /tasks", () => {
     beforeAll(async () => {
-        server = app.listen(4000);
+        server = app.listen(0);
     })
 
     it("SHOULD return a task after creating it", async () => {
         await db.task.deleteMany();
-        const data = { title: "Cook rice and beans", day: 3 };
+        const data: NewTask =
+        {
+            day: 3,
+            deadline: new Date("2023-11-02T03:24:00"),
+            description: "",
+            level: 1,
+            title: "Cook rice and beans",
+        };
+
         const res = await request(app).post("/tasks").send(data);
-        delete res.body["id"];
-        expect(res.body).toEqual(data);
+        const received = tidyTaskForExpect(res.body);
+        expect(received).toEqual(data);
     });
 
     it("SHOULD fail to create a task with negative days", async () => {
-        const data = { title: "Cook rice and beans", day: -3 };
+        const data: NewTask =
+        {
+            day: -3,
+            deadline: new Date("2023-11-02T03:24:00"),
+            description: "",
+            level: 1,
+            title: "Cook rice and beans",
+        };
+
+
         const res = await request(app).post("/tasks").send(data);
         expect(res.status).toBe(400);
         expect(res.text).toBe("Something went wrong: Task day must be non-negative");
@@ -76,14 +109,22 @@ describe("POST /tasks", () => {
 describe("DELETE /tasks/:id", () => {
 
     beforeAll(async () => {
-        server = app.listen(4000);
+        server = app.listen(0);
     })
 
-    it("SHOULD deleting a single task", async () => {
+    it("SHOULD delete a single task", async () => {
         await db.task.deleteMany();
 
         // Create single task
-        const data = { title: "Cook rice and beans", day: 3 };
+        const data: NewTask =
+        {
+            day: 3,
+            deadline: new Date("2023-11-02T03:24:00"),
+            description: "",
+            level: 1,
+            title: "Cook rice and beans",
+        };
+
         const res1 = await request(app).post("/tasks").send(data);
         expect(res1.status).toBe(200);
 
@@ -103,7 +144,7 @@ describe("DELETE /tasks/:id", () => {
 describe("PATCH /tasks/:id", () => {
 
     beforeAll(async () => {
-        server = app.listen(4000);
+        server = app.listen(0);
     })
 
     it("SHOULD mark a single task as complete", async () => {
@@ -111,7 +152,14 @@ describe("PATCH /tasks/:id", () => {
         await db.history.deleteMany();
 
         // Create single task
-        const data = { title: "Cook rice and beans", day: 3 };
+        const data: NewTask =
+        {
+            day: 3,
+            deadline: new Date("2023-11-02T03:24:00"),
+            description: "",
+            level: 1,
+            title: "Cook rice and beans",
+        };
         const res1 = await request(app).post("/tasks").send(data);
         expect(res1.status).toBe(200);
 

@@ -7,7 +7,7 @@ let server;
 
 describe("GET /history", () => {
     beforeAll(async () => {
-        server = app.listen(4000);
+        server = app.listen(0);
     });
 
     it("SHOULD return 200 Ok", async () => {

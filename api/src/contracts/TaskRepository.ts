@@ -1,7 +1,7 @@
-import { Task } from "../models/task";
+import { NewTask, Task } from "../models/task";
 
 export interface TaskRepository {
     tasks(): Promise<Task[]>;
-    createTask(data: { title: string; day: number; }): Promise<Task>;
+    createTask(data: NewTask): Promise<Task>;
     deleteTask(id: string): Promise<void>;
 }
