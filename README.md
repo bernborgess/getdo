@@ -13,7 +13,6 @@
 
 <img src="https://i.ibb.co/1MdxJFx/logo.jpg" alt="GetDo Logo">
 
-> Lista de tarefas para organizar seu dia-a-dia e não esquecer nenhum afazer.
 
 ### Descrição do Sistema
 GetDo é um sistema de gerenciamento de tarefas inovador, projetado para proporcionar uma experiência envolvente e divertida ao cumprir suas tarefas diárias. Ele oferece uma gama de recursos que visam tornar a organização e a conclusão de tarefas mais eficientes e agradáveis.
