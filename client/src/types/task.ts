@@ -1,16 +1,17 @@
 
 export interface NewTask {
-    title: string;
-    description: string;
     day: number;
+    deadline: Date;
+    description: string;
     level: number;
+    title: string;
 }
 
 export const emptyData = {
-    title: "", 
-    description: "",
     day: 0,
+    description: "",
     level: 0,
+    title: "", 
 }
 
 
