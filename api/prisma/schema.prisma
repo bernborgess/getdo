@@ -12,15 +12,17 @@ datasource db {
 
 model Task {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  description String
   day         Int
-  level       Int
   deadline    DateTime
+  description String
+  level       Int
+  title       String
 }
 
 model History {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  title      String
-  finishedAt DateTime @default(now())
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  finishedAt  DateTime @default(now())
+  level       Int
+  title       String
 }

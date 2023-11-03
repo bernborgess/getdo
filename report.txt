@@ -1,0 +1,114 @@
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+       4      1     22      0       4 constructor@8-11@api/src\controllers\HistoryController.ts
+       4      1     21      0       4 async@13-16@api/src\controllers\HistoryController.ts
+       6      1     40      0       6 constructor@12-17@api/src\controllers\TaskController.ts
+       4      1     21      0       4 async@19-22@api/src\controllers\TaskController.ts
+       9      2     56      0       9 async@24-32@api/src\controllers\TaskController.ts
+       4      1     29      0       4 async@34-37@api/src\controllers\TaskController.ts
+       5      1     33      0       7 Date@47-53@api/src\controllers\TaskController.ts
+       3      1     16      1       3 constructor@15-17@api/src\models\history.ts
+       3      1     16      1       3 constructor@18-20@api/src\models\task.ts
+       3      1     12      0       3 async@6-8@api/src\resources\PrismaHistoryRepository.ts
+       3      1     12      0       3 async@6-8@api/src\resources\PrismaTaskRepository.ts
+       3      1     15      0       3 async@10-12@api/src\resources\PrismaTaskRepository.ts
+       3      1     18      0       3 async@14-16@api/src\resources\PrismaTaskRepository.ts
+       3      1     13      1       3 constructor@7-9@api/src\services\HistoryService.ts
+       4      1     17      0       4 async@11-14@api/src\services\HistoryService.ts
+       5      2     30      0       6 async@16-21@api/src\services\HistoryService.ts
+       3      1     13      1       3 constructor@7-9@api/src\services\TaskService.ts
+       4      1     17      0       4 async@11-14@api/src\services\TaskService.ts
+       8      3     50      0       8 async@16-23@api/src\services\TaskService.ts
+       3      1     12      0       3 async@25-27@api/src\services\TaskService.ts
+       1      1      1      0       1 (anonymous)@4-4@api/src\server.ts
+       3      1      7      1       3 Date@12-14@api/test\acceptance_tests\history.test.ts
+       3      1     11      0       3 (anonymous)@17-19@api/test\acceptance_tests\history.test.ts
+       4      1     28      0       4 (anonymous)@21-24@api/test\acceptance_tests\history.test.ts
+      12      1     98      1      17 Date@36-52@api/test\acceptance_tests\history.test.ts
+       3      1      8      0       3 (anonymous)@55-57@api/test\acceptance_tests\history.test.ts
+       9      1     33      1      30 Date@30-59@api/test\acceptance_tests\history.test.ts
+       3      1      7      1       3 Date@12-14@api/test\acceptance_tests\tasks.test.ts
+       3      1     11      0       3 (anonymous)@17-19@api/test\acceptance_tests\tasks.test.ts
+       4      1     28      0       4 (anonymous)@21-24@api/test\acceptance_tests\tasks.test.ts
+      13      1     96      1      15 Date@37-51@api/test\acceptance_tests\tasks.test.ts
+       3      1      8      0       3 (anonymous)@53-55@api/test\acceptance_tests\tasks.test.ts
+      10      1     39      1      28 Date@30-57@api/test\acceptance_tests\tasks.test.ts
+       3      1     11      0       3 (anonymous)@60-62@api/test\acceptance_tests\tasks.test.ts
+       9      1     58      1      10 Date@69-78@api/test\acceptance_tests\tasks.test.ts
+       9      1     62      1      11 Date@84-94@api/test\acceptance_tests\tasks.test.ts
+       6      1     58      0       6 (anonymous)@96-101@api/test\acceptance_tests\tasks.test.ts
+       3      1      8      0       3 (anonymous)@103-105@api/test\acceptance_tests\tasks.test.ts
+       8      1     39      0      28 (anonymous)@80-107@api/test\acceptance_tests\tasks.test.ts
+       3      1     11      0       3 (anonymous)@111-113@api/test\acceptance_tests\tasks.test.ts
+      11      1     91      1      16 Date@122-137@api/test\acceptance_tests\tasks.test.ts
+       3      1      8      0       3 (anonymous)@139-141@api/test\acceptance_tests\tasks.test.ts
+       8      1     38      0      28 (anonymous)@115-142@api/test\acceptance_tests\tasks.test.ts
+       3      1     11      0       3 (anonymous)@146-148@api/test\acceptance_tests\tasks.test.ts
+      13      1    119      1      19 Date@158-176@api/test\acceptance_tests\tasks.test.ts
+       3      1      8      0       3 (anonymous)@178-180@api/test\acceptance_tests\tasks.test.ts
+       9      1     47      0      32 (anonymous)@150-181@api/test\acceptance_tests\tasks.test.ts
+       6      1     45      0       6 (anonymous)@6-11@api/test\integration_tests\history_service.test.ts
+       7      1     42      1       7 Date@18-24@api/test\integration_tests\history_service.test.ts
+       6      1     49      0       6 (anonymous)@7-12@api/test\integration_tests\task_service.test.ts
+      10      1     69      1      10 Date@18-27@api/test\integration_tests\task_service.test.ts
+       9      1     60      1       9 Date@34-42@api/test\integration_tests\task_service.test.ts
+       5      1     36      0       5 (anonymous)@5-9@api/test\unit_tests\history_service.test.ts
+       5      1     36      0       5 (anonymous)@11-15@api/test\unit_tests\history_service.test.ts
+       3      1      6      0       3 async@21-23@api/test\unit_tests\history_service.test.ts
+       7      1     27      1       7 Date@33-39@api/test\unit_tests\history_service.test.ts
+       5      1     40      0       5 (anonymous)@5-9@api/test\unit_tests\task_service.test.ts
+       5      1     40      0       5 (anonymous)@11-15@api/test\unit_tests\task_service.test.ts
+       6      1     33      1       6 Date@23-28@api/test\unit_tests\task_service.test.ts
+       3      1      6      0       3 async@31-33@api/test\unit_tests\task_service.test.ts
+       3      1      9      0       3 async@35-37@api/test\unit_tests\task_service.test.ts
+       3      1      4      0       3 async@39-41@api/test\unit_tests\task_service.test.ts
+       7      1     27      1       7 Date@48-54@api/test\unit_tests\task_service.test.ts
+       3      1      9      0       3 async@55-57@api/test\unit_tests\task_service.test.ts
+       3      1      4      0       3 async@58-60@api/test\unit_tests\task_service.test.ts
+       3      1     23      1       3 completeTask@3-5@client/src\services\completeTask.ts
+       3      1     18      1       3 createTask@4-6@client/src\services\createTask.ts
+       3      1     23      1       3 deleteTask@3-5@client/src\services\deleteTask.ts
+       4      1     27      0       4 getHistory@4-7@client/src\services\getHistory.ts
+       4      1     27      0       4 getTasks@4-7@client/src\services\getTasks.ts
+      10      2     50      0      10 (anonymous)@5-14@client/src\utils\components\Navbar\styles.ts
+29 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+      5       0.0     0.0        0.0         0     api/src\contracts\HistoryRepository.ts
+      6       0.0     0.0        0.0         0     api/src\contracts\TaskRepository.ts
+     15       4.0     1.0       21.5         2     api/src\controllers\HistoryController.ts
+     45       5.6     1.2       35.8         5     api/src\controllers\TaskController.ts
+     15       3.0     1.0       16.0         1     api/src\models\history.ts
+     17       3.0     1.0       16.0         1     api/src\models\task.ts
+      2       0.0     0.0        0.0         0     api/src\resources\PrismaClient.ts
+     11       3.0     1.0       12.0         1     api/src\resources\PrismaHistoryRepository.ts
+     14       3.0     1.0       15.0         3     api/src\resources\PrismaTaskRepository.ts
+     18       4.0     1.3       20.0         3     api/src\services\HistoryService.ts
+     24       4.5     1.5       23.0         4     api/src\services\TaskService.ts
+     14       0.0     0.0        0.0         0     api/src\index.ts
+     10       0.0     0.0        0.0         0     api/src\routes.ts
+      4       1.0     1.0        1.0         1     api/src\server.ts
+     46       5.7     1.0       30.8         6     api/test\acceptance_tests\history.test.ts
+    140       6.3     1.0       37.9        20     api/test\acceptance_tests\tasks.test.ts
+     21       6.5     1.0       43.5         2     api/test\integration_tests\history_service.test.ts
+     38       8.3     1.0       59.3         3     api/test\integration_tests\task_service.test.ts
+     36       5.0     1.0       26.2         4     api/test\unit_tests\history_service.test.ts
+     54       4.2     1.0       19.1         9     api/test\unit_tests\task_service.test.ts
+      6       0.0     0.0        0.0         0     client/src\services\api.ts
+      4       3.0     1.0       23.0         1     client/src\services\completeTask.ts
+      5       3.0     1.0       18.0         1     client/src\services\createTask.ts
+      4       3.0     1.0       23.0         1     client/src\services\deleteTask.ts
+      6       4.0     1.0       27.0         1     client/src\services\getHistory.ts
+      6       4.0     1.0       27.0         1     client/src\services\getTasks.ts
+     17       0.0     0.0        0.0         0     client/src\types\task.ts
+     12      10.0     2.0       50.0         1     client/src\utils\components\Navbar\styles.ts
+      1       0.0     0.0        0.0         0     client/src\vite-env.d.ts
+
+===============================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 1000000 or parameter_count > 100)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+       596       5.2     1.1       29.8       71            0      0.00    0.00

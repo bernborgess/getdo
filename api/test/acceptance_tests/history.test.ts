@@ -1,9 +1,17 @@
 import * as request from "supertest";
 import { app } from "../../src";
-import { History } from "../../src/models/history";
+import { History, NewHistory } from "../../src/models/history";
 import { prismaClient as db } from "../../src/resources/PrismaClient";
 
 let server;
+
+function tidyHistoryForExcept(dirtyHistory): NewHistory {
+    delete dirtyHistory.id;
+    return {
+        ...dirtyHistory,
+        finishedAt: new Date(dirtyHistory.finishedAt)
+    }
+}
 
 describe("GET /history", () => {
     beforeAll(async () => {
@@ -16,9 +24,19 @@ describe("GET /history", () => {
     });
 
     it("SHOULD return a list of 2 histories WHEN db contains 2 histories", async () => {
-        const histories = [
-            new History("Cook rice and beans", new Date("2023-11-02T07:24:00")),
-            new History("Take the trash out", new Date("2023-11-03T07:24:00")),
+        const histories: NewHistory[] = [
+            {
+                description: "Nice and hot",
+                finishedAt: new Date("2023-11-02T07:24:00"),
+                level: 3,
+                title: "Cook rice and beans"
+            },
+            {
+                description: "Take the trash out",
+                finishedAt: new Date("2023-11-02T07:24:00"),
+                level: 3,
+                title: "Cook rice and beans"
+            }
         ];
 
         await db.history.deleteMany();
@@ -27,11 +45,9 @@ describe("GET /history", () => {
 
         const res = await request(app).get("/history");
 
-        const resHistories: History[] = res.body.map(
-            hist => ({ title: hist.title, finishedAt: new Date(hist.finishedAt) })
-        );
+        const received: History[] = res.body.map(tidyHistoryForExcept);
 
-        expect(resHistories).toEqual(histories);
+        expect(received).toEqual(histories);
 
     })
 

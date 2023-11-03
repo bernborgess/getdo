@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { NewHistory } from "../models/history";
 import { prismaClient } from "../resources/PrismaClient";
 import { PrismaHistoryRepository } from "../resources/PrismaHistoryRepository";
 import { PrismaTaskRepository } from "../resources/PrismaTaskRepository";
@@ -38,14 +39,18 @@ class TaskController {
 
     complete = async (req: Request, res: Response) => {
 
-        const oldTask = await prismaClient.task.findFirst({
-            where: { id: req.params.id }
-        });
+        const id = req.params.id;
 
-        await this.historyService.createHistory({
+        const oldTask = await prismaClient.task.findFirst({ where: { id } });
+
+        const newHistory: NewHistory = {
+            description: oldTask.description,
+            finishedAt: new Date(),
+            level: oldTask.level,
             title: oldTask.title,
-            finishedAt: new Date()
-        });
+        };
+
+        await this.historyService.createHistory(newHistory);
 
         await this.taskService.deleteTask(req.params.id);
 
