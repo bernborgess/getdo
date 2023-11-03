@@ -13,6 +13,11 @@ class TaskService {
         return tasks;
     }
 
+    getTask = async (id: string): Promise<Task> => {
+        const task = await this.repository.getTask(id);
+        return task;
+    }
+
     createTask = async (data: NewTask): Promise<Task> => {
         if (data.title.length === 0)
             throw new Error("Task title must not be empty");
