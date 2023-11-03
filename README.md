@@ -61,6 +61,12 @@ npm run dev
 
 Lembre-se de criar o arquivo .env dentro das pastas api e client
 
+Para recriar o report do _lizard_ use o comando:
+
+```
+lizard api/src api/test client/src -o report.html
+```
+
 ## 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
