@@ -18,7 +18,15 @@
 > Lista de tarefas para organizar seu dia-a-dia e não esquecer nenhum afazer.
 
 ### Descrição do Sistema
-O GetDo é um sistema de gerenciamento de tarefas inovador que oferece uma abordagem envolvente e divertida para cumprir suas atividades diárias. Permitindo a criação de uma lista personalizada de tarefas, os usuários podem facilmente marcar as tarefas como concluídas, acompanhando seu progresso e mantendo um registro claro das atividades realizadas. Possuí um histórico abrangent, destaca as tarefas pendentes e fornece estatísticas detalhadas sobre a conclusão de tarefas, incluindo insights sobre o desempenho do usuário e padrões de produtividade. Além disso, apresenta um recurso motivador de "streak" que rastreia a consistência do usuário na realização de tarefas, mantendo o usuário engajado e incentivado a atingir suas metas diárias.
+GetDo é um sistema de gerenciamento de tarefas inovador, projetado para proporcionar uma experiência envolvente e divertida ao cumprir suas tarefas diárias. Ele oferece uma gama de recursos que visam tornar a organização e a conclusão de tarefas mais eficientes e agradáveis.
+
+Com o GetDo, os usuários têm a capacidade de criar uma lista de tarefas personalizada, cada tarefa pode ser facilmente adicionada, com a opção de marcar tarefas como concluídas, indicando assim seu progresso e mantendo um registro claro das atividades realizadas.
+
+Além disso, o sistema fornece um histórico abrangente de todas as tarefas previamente concluídas, permitindo aos usuários revisitar suas realizações e manter uma visão geral de seu progresso ao longo do tempo. As tarefas pendentes são destacadas, facilitando a identificação das próximas atividades a serem concluídas.
+
+Um recurso interessante do GetDo é a exibição de estatísticas de realização de tarefas. Essas estatísticas oferecem uma análise detalhada do desempenho do usuário, incluindo o número de tarefas concluídas em um determinado período de tempo, padrões de produtividade e outros insights relevantes.
+
+Além disso, o sistema incorpora um "streak" de realização de tarefas, um recurso motivador que rastreia a consistência do usuário na conclusão de tarefas ao longo do tempo. Esse streak serve como um estímulo adicional para manter o usuário engajado e motivado na realização de suas metas diárias.
 
 ### Tecnologias Utilizadas
 O GetDo utiliza um conjunto de tecnologias modernas para fornecer uma experiência eficiente e envolvente aos usuários. Aqui está uma breve explicação sobre como cada uma dessas tecnologias é empregada no sistema:
