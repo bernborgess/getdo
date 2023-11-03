@@ -8,9 +8,7 @@
     src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
 <img align="center" alt="mui"
     src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" />
-<img align="center" alt="swagger"
-    src="https://img.shields.io/badge/Swagger-85EA2D.svg?style=for-the-badge&logo=Swagger&logoColor=black" />
-<img align="center" alt="swagger"
+<img align="center" alt="jest"
     src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white" />
 
 <img src="https://i.ibb.co/1MdxJFx/logo.jpg" alt="GetDo Logo">
@@ -42,6 +40,12 @@ O GetDo utiliza um conjunto de tecnologias modernas para fornecer uma experiênc
 - Prisma: é integrado para facilitar as consultas e operações com o banco de dados. Ele oferece um conjunto de ferramentas que simplificam a interação com o banco de dados, permitindo um acesso mais intuitivo e eficiente aos dados.
 
 - Express: é utilizado para criar e gerenciar o back-end do aplicativo, ele oferece um conjunto de funcionalidades para roteamento, lidar com requisições HTTP, gerenciamento de middleware e construção de APIs, permitindo uma comunicação eficaz entre o front-end e o banco de dados.
+
+- Supertest: é utilizado para testar a API do sistema, permitindo a execução de requisições simuladas para verificar se os endpoints estão respondendo corretamente, além de auxiliar na verificação de comportamentos e respostas do servidor.
+
+- Jest: é empregado para realizar testes de integração, ele oferece uma estrutura de testes completa, com funcionalidades para criar casos de teste, executar testes automatizados e fornecer relatórios detalhados sobre o desempenho do código. Ao integrar o Supertest com o Jest, é possível realizar testes de integração completos, verificando a interação entre o front-end, back-end e o banco de dados para assegurar o correto funcionamento do sistema.
+
+
 
 ### Ajustes e melhorias
 
