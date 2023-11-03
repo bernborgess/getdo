@@ -21,8 +21,8 @@ function Navbar() {
 
   const routes: RouteChip[] = [
     { to: "/", text: "Home" },
-    { to: "newTask", text: "Create New Task" },
-    { to: "history", text: "History" }
+    { to: "/newTask", text: "Create New Task" },
+    { to: "/history", text: "History" }
   ]
 
   const { pathname } = useLocation();

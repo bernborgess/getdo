@@ -1,3 +1,4 @@
+import { Task } from "../types/task";
 import { api } from "./api";
 
 export async function getTasks(): Promise<Task[]> {
