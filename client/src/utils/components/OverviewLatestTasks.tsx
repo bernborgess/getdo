@@ -90,9 +90,14 @@ export default function OverviewLatestTasks() {
                   Date
                 </Typography>
               </TableCell>
+              <TableCell sortDirection="desc">
+                <Typography variant="h6" sx={{ color: "#3E0554" }}>
+                  Days
+                </Typography>
+              </TableCell>
               <TableCell>
                 <Typography variant="h6" sx={{ color: "#3E0554" }}>
-                  Status
+                  Level
                 </Typography>
               </TableCell>
               <TableCell>
@@ -124,6 +129,14 @@ export default function OverviewLatestTasks() {
                       variant="overline"
                     >
                       arrumar
+                    </Typography>     </TableCell>
+                  <TableCell>
+                    <Typography
+                      color="text.secondary"
+                      gutterBottom
+                      variant="overline"
+                    >
+                      12/12/2012
                     </Typography>     </TableCell>
                   <TableCell>
                     <Typography

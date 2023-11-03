@@ -45,7 +45,6 @@ export function CreateTask() {
                 label="Title"
                 type="string"
                 variant="standard"
-                required
                 InputLabelProps={{ shrink: true }}
                 onChange={(e) => updateData({ title: e.target.value })}
               />
@@ -76,10 +75,21 @@ export function CreateTask() {
               <TextField
                 id="standard-search"
                 label="Level"
-                type="string"
+                type="number"
                 variant="standard"
                 InputLabelProps={{ shrink: true }}
                 onChange={(e) => updateData({ level: Number(e.target.value) })}
+              />
+            </div>
+            <div>
+
+              <TextField
+                id="standard-search"
+                label="Date"
+                type="date"
+                variant="standard"
+                InputLabelProps={{ shrink: true }}
+                onChange={(e) => updateData({ deadline: new Date(e.target.value) })}
               />
             </div>
             <div>
