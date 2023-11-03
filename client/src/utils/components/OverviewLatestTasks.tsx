@@ -37,18 +37,15 @@ export default function OverviewLatestTasks() {
 
   async function refreshTasks() {
     setTasks(await getTasks());
-    console.log(tasks);
   }
 
   async function handleDelete(id: string) {
-    const res = await deleteTask(id);
-    console.log(res);
+    await deleteTask(id);
     await refreshTasks();
   }
 
   async function handleComplete(id: string) {
-    const res = await completeTask(id);
-    console.log(res);
+    await completeTask(id);
     await refreshTasks();
   }
 

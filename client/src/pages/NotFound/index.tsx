@@ -58,7 +58,6 @@ export default function NotFound() {
               onClick={() => navigate("/")}
               startIcon={(
                 <SvgIcon fontSize="small">
-                  {/* <ArrowLeftIcon /> */}
                   mmm
                 </SvgIcon>
               )}

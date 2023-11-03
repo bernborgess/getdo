@@ -21,11 +21,9 @@ export function History() {
   useEffect(() => {
     refreshTasks();
   }, [])
-  console.log(tasks)
 
   async function refreshTasks() {
     setTasks(await getHistory());
-    console.log(tasks)
   }
   return (
     <Box
