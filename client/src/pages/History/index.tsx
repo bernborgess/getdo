@@ -21,6 +21,7 @@ export function History() {
   useEffect(() => {
     refreshTasks();
   }, [])
+  console.log(tasks)
 
   async function refreshTasks() {
     setTasks(await getHistory());
@@ -102,7 +103,7 @@ export function History() {
                               gutterBottom
                               variant="overline"
                             >
-                              {(new Date(task.finish)).toLocaleDateString("pt-PT")}
+                              {(new Date(task.finishedAt)).toLocaleDateString("pt-PT")}
                             </Typography>     </TableCell>
                           <TableCell>
                             <Typography

@@ -1,7 +1,7 @@
 
 export interface HistoryTask {
   id: string;
-  finish: Date;
+  finishedAt: Date;
   description: string;
   level: number;
   title: string;
