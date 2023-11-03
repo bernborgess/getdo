@@ -10,6 +10,10 @@
     src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white" />
 <img align="center" alt="jest"
     src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white" />
+<img align="center" alt="mongo"
+    src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img align="center" alt="prisma"
+    src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white"/>
 
 <img src="https://i.ibb.co/1MdxJFx/logo.jpg" alt="GetDo Logo">
 
