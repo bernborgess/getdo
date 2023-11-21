@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   launch: {
     headless: process.env.HEADLESS !== 'false',
