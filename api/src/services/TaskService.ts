@@ -1,4 +1,5 @@
 import { TaskRepository } from "../contracts/TaskRepository";
+import { checkValidTask } from "../helpers/taskValidationHelpers";
 import { NewTask, Task } from "../models/task";
 
 class TaskService {
@@ -19,10 +20,9 @@ class TaskService {
     }
 
     createTask = async (data: NewTask): Promise<Task> => {
-        if (data.title.length === 0)
-            throw new Error("Task title must not be empty");
-        if (data.day < 0)
-            throw new Error("Task day must be non-negative");
+        // Throws if invalid
+        checkValidTask(data);
+
         const task = await this.repository.createTask(data);
         return task;
     }

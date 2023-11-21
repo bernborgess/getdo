@@ -13,3 +13,10 @@ test("getTasks with one task in db returns list of one task", async () => {
     const tasks: Task[] = await taskService.getTasks();
     expect(tasks.length).toBe(1);
 })
+
+test("getTasks returns the same result", async () => {
+    const taskService = new TaskService(new SingleMockRepository());
+    const tasks1: Task[] = await taskService.getTasks();
+    const tasks2: Task[] = await taskService.getTasks();
+    expect(tasks1).toEqual(tasks2);
+})

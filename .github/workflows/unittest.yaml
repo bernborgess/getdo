@@ -3,7 +3,7 @@ name: Auto Tests
 on: [push]
 
 jobs:
-  tests:
+  unit-tests:
     runs-on: ${{ matrix.os }}
 
     strategy:
