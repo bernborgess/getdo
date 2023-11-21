@@ -14,6 +14,8 @@
     src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" />
 <img align="center" alt="prisma"
     src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white"/>
+<img align="center" alt="docker"
+  src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white" />
 
 <img src="https://i.ibb.co/1MdxJFx/logo.jpg" alt="GetDo Logo">
 
