@@ -88,3 +88,16 @@ test("Can't create a task with level above 5", async () => {
         .rejects.toThrow(new Error("Task level must be between 1 and 5"));
 })
 
+test("Can't create a task with invalid date", async () => {
+    const taskService = new TaskService(new EmptyMockTaskRepository());
+    const data: NewTask = {
+        title: "Some Title",
+        description: "Some Description",
+        day: 2,
+        deadline: new Date("trash"),
+        level: 3
+    };
+
+    await expect(async () => { await taskService.createTask(data) })
+        .rejects.toThrow(new Error("Task deadline must be a valid Date"));
+})

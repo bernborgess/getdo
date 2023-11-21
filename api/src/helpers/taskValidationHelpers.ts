@@ -16,7 +16,7 @@ function isValidLevel(level: number): boolean {
     return 1 <= level && level <= 5;
 }
 
-function isValidDeadline(deadline: string): boolean {
+function isValidDeadline(deadline: Date): boolean {
     const date = new Date(deadline);
     return !isNaN(Number(date));
 }
@@ -35,7 +35,7 @@ export function checkValidTask(data: NewTask) {
     if (!isValidLevel(data.level))
         throw new Error("Task level must be between 1 and 5");
 
-    // if (!isValidDeadline(data.deadline as any))
-    //     throw new Error("Task deadline must be a valid Date");
+    if (!isValidDeadline(data.deadline))
+        throw new Error("Task deadline must be a valid Date");
 
 }
