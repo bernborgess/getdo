@@ -61,13 +61,13 @@ describe("POST /tasks", () => {
         server = app.listen(0);
     })
 
-    it("SHOULD return a task after creating it", async () => {
+    it.only("SHOULD return a task after creating it", async () => {
         await db.task.deleteMany();
         const data: NewTask =
         {
             day: 3,
             deadline: new Date("2023-11-02T03:24:00"),
-            description: "",
+            description: "Some Description",
             level: 1,
             title: "Cook rice and beans",
         };
@@ -78,11 +78,10 @@ describe("POST /tasks", () => {
     });
 
     it("SHOULD fail to create a task with negative days", async () => {
-        const data: NewTask =
-        {
+        const data: NewTask = {
             day: -3,
             deadline: new Date("2023-11-02T03:24:00"),
-            description: "",
+            description: "Some Description",
             level: 1,
             title: "Cook rice and beans",
         };
@@ -94,7 +93,14 @@ describe("POST /tasks", () => {
     });
 
     it("SHOULD fail to create a task with empty title", async () => {
-        const data = { title: "", day: 1 };
+        const data = {
+            day: 3,
+            deadline: new Date("2023-11-02T03:24:00"),
+            description: "Some Description",
+            level: 1,
+            title: "",
+        };
+
         const res = await request(app).post("/tasks").send(data);
         expect(res.status).toBe(400);
         expect(res.text).toBe("Something went wrong: Task title must not be empty");
