@@ -1,6 +1,7 @@
-import { HistoryRepository } from "../../src/contracts/HistoryRepository";
-import { History, NewHistory } from "../../src/models/history";
-import HistoryService from "../../src/services/HistoryService";
+import { HistoryRepository } from "../../../src/contracts/HistoryRepository";
+import { History, NewHistory } from "../../../src/models/history";
+import HistoryService from "../../../src/services/HistoryService";
+
 
 test("getHistory with no entry in db returns empty list", async () => {
     const historyService = new HistoryService(new EmptyMockHistoryRepository());
