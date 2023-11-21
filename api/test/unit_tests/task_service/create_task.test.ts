@@ -1,10 +1,10 @@
 import { NewTask, Task } from "../../../src/models/task";
 import TaskService from "../../../src/services/TaskService";
-import { EmptyMockRepository } from "./mock_respositories";
+import { EmptyMockTaskRepository } from "./mock_repositories";
 
 
 test("createTask works with simple example", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Task 1",
         description: "Got to do this!",
@@ -17,7 +17,7 @@ test("createTask works with simple example", async () => {
 })
 
 test("Can't create a task with negative days", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Task 1",
         description: "Got to do this!",
@@ -31,7 +31,7 @@ test("Can't create a task with negative days", async () => {
 })
 
 test("Can't create a task with empty title", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "",
         description: "Got to do this!",
@@ -46,7 +46,7 @@ test("Can't create a task with empty title", async () => {
 
 
 test("Can't create a task with empty description", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Some Title",
         description: "",
@@ -60,7 +60,7 @@ test("Can't create a task with empty description", async () => {
 })
 
 test("Can't create a task with level below 1", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Some Title",
         description: "Some Description",
@@ -75,7 +75,7 @@ test("Can't create a task with level below 1", async () => {
 
 
 test("Can't create a task with level above 5", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Some Title",
         description: "Some Description",
@@ -90,7 +90,7 @@ test("Can't create a task with level above 5", async () => {
 
 
 test("Can't create a task with invalid date", async () => {
-    const taskService = new TaskService(new EmptyMockRepository());
+    const taskService = new TaskService(new EmptyMockTaskRepository());
     const data: NewTask = {
         title: "Some Title",
         description: "Some Description",

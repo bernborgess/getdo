@@ -7,8 +7,8 @@ export class PrismaTaskRepository implements TaskRepository {
         return await prismaClient.task.findMany();
     }
 
-    getTask = async (id: string): Promise<Task> => {
-        return await prismaClient.task.findFirst({ where: { id } });
+    getTaskOrThrow = async (id: string): Promise<Task> => {
+        return await prismaClient.task.findFirstOrThrow({ where: { id } });
     }
 
 
