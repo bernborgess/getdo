@@ -17,8 +17,8 @@ export function CreateTask() {
   function updateData(addNewTask: Partial<NewTask>) {
     setNewTask({ ...newTask, ...addNewTask });
   }
-  function handleSubmit() {
-    createTask(newTask);
+  async function handleSubmit() {
+    await createTask(newTask);
     navigate("/");
   }
 
