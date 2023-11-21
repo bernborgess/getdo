@@ -15,7 +15,7 @@ class TaskService {
     }
 
     getTask = async (id: string): Promise<Task> => {
-        const task = await this.repository.getTask(id);
+        const task = await this.repository.getTaskOrThrow(id);
         return task;
     }
 
