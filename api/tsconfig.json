@@ -9,10 +9,12 @@
             "es2015",
             "esnext.asynciterable"
         ],
+        "typeRoots": [
+            "node_modules/@types"
+        ],
         "types": [
             "jest",
             "node",
-            "@types/jest"
         ],
         "sourceMap": true,
     },
@@ -21,6 +23,7 @@
     ],
     "include": [
         "./src/",
+        "./test/",
         "*.ts"
     ]
 }
