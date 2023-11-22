@@ -24,7 +24,7 @@ export function CreateTask() {
 
   return (
     <div>
-      <Box
+      <Box data-testID="form"
         component="form"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -39,7 +39,7 @@ export function CreateTask() {
       >
         <Paper elevation={3} sx={{ p: 2 }}>
           <FormControl defaultValue="" required>
-            <div>
+            <div data-testID="form-input">
               <TextField
                 id="standard-search"
                 label="Title"
@@ -49,7 +49,7 @@ export function CreateTask() {
                 onChange={(e) => updateData({ title: e.target.value })}
               />
             </div>
-            <div>
+            <div data-testID="form-input">
 
               <TextField
                 id="standard-search"
@@ -60,7 +60,7 @@ export function CreateTask() {
                 onChange={(e) => updateData({ description: e.target.value })}
               />
             </div>
-            <div>
+            <div data-testID="form-input">
               <TextField
                 id="standard-search"
                 label="Day"
@@ -70,7 +70,7 @@ export function CreateTask() {
                 onChange={(e) => updateData({ day: Number(e.target.value) })}
               />
             </div>
-            <div>
+            <div data-testID="form-input">
 
               <TextField
                 id="standard-search"
@@ -81,7 +81,7 @@ export function CreateTask() {
                 onChange={(e) => updateData({ level: Number(e.target.value) })}
               />
             </div>
-            <div>
+            <div data-testID="form-input">
 
               <TextField
                 id="standard-search"
@@ -92,13 +92,13 @@ export function CreateTask() {
                 onChange={(e) => updateData({ deadline: new Date(e.target.value) })}
               />
             </div>
-            <div>
-              <Button
+            <div data-testID="form-input">
+              <Button data-testID="button-form"
                 size="small"
                 variant="contained"
                 color="success"
                 onClick={handleSubmit}
-                disabled={newTask.day == 0}>Salvar Dados</Button>
+                disabled={newTask.day == 0}>Save</Button>
             </div>
           </FormControl>
         </Paper>
