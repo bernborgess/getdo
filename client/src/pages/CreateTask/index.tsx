@@ -40,7 +40,7 @@ export function CreateTask() {
         <Paper elevation={3} sx={{ p: 2 }}>
           <FormControl defaultValue="" required>
             <div data-testID="form-input">
-              <TextField
+              <TextField data-testID="form-input-title"
                 id="standard-search"
                 label="Title"
                 type="string"
@@ -51,7 +51,7 @@ export function CreateTask() {
             </div>
             <div data-testID="form-input">
 
-              <TextField
+              <TextField data-testID="form-input-description"
                 id="standard-search"
                 label=" Description"
                 type="string"
@@ -61,7 +61,7 @@ export function CreateTask() {
               />
             </div>
             <div data-testID="form-input">
-              <TextField
+              <TextField data-testID="form-input-day"
                 id="standard-search"
                 label="Day"
                 type="number"
@@ -71,8 +71,7 @@ export function CreateTask() {
               />
             </div>
             <div data-testID="form-input">
-
-              <TextField
+              <TextField data-testID="form-input-level"
                 id="standard-search"
                 label="Level"
                 type="number"
@@ -82,8 +81,7 @@ export function CreateTask() {
               />
             </div>
             <div data-testID="form-input">
-
-              <TextField
+              <TextField data-testID="form-input-date"
                 id="standard-search"
                 label="Date"
                 type="date"
