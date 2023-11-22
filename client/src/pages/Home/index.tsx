@@ -20,7 +20,7 @@ export default function Home() {
           container
           spacing={3}
         >
-          <Grid
+          <Grid data-testID="cards"
             xs={12}
             sm={6}
             lg={3}
@@ -32,7 +32,7 @@ export default function Home() {
               value="15"
             />
           </Grid>
-          <Grid
+          <Grid data-testID="cards"
             xs={12}
             sm={6}
             lg={3}
@@ -44,7 +44,7 @@ export default function Home() {
               value="1.6k"
             />
           </Grid>
-          <Grid
+          <Grid data-testID="cards"
             xs={12}
             sm={6}
             lg={3}
@@ -55,7 +55,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid
+          <Grid data-testID="cards"
             xs={12}
             sm={6}
             lg={3}
@@ -65,7 +65,8 @@ export default function Home() {
               value="75 days"
             />
           </Grid>
-          <Grid
+
+          <Grid data-testID="table"
             xs={12}
             md={12}
             lg={12}

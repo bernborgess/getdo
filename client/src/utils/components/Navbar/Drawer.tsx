@@ -25,7 +25,7 @@ function DrawerComponent() {
 
   return (
     <>
-      <Drawer
+      <Drawer data-testID="navbar"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
@@ -36,7 +36,7 @@ function DrawerComponent() {
             <>
               <ListItem onClick={() => setOpenDrawer(false)}>
                 <ListItemText>
-                  <NavButtonText
+                  <NavButtonText data-testID="button-navbar"
                     $current={route.to === pathname}
                     to={route.to}>
                     {route.text}

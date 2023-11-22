@@ -30,7 +30,7 @@ function Navbar() {
 
   return (
     <div>
-      <AppBar
+      <AppBar data-testID="navbar"
         sx={{ bgcolor: "#3E0554" }}
         position="static"
       >
@@ -56,7 +56,7 @@ function Navbar() {
                 />
               </Box>
               {routes.map(route => (
-                <NavButtonText
+                <NavButtonText data-testID="button-navbar"
                   $current={route.to === pathname}
                   to={route.to}>
                   {route.text}
