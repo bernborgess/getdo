@@ -1,4 +1,4 @@
-describe('check homepage template', () => {
+describe('check "Home" template', () => {
   it('passes', () => {
     cy.visit('http://127.0.0.1:5173/')
     cy.get('[data-testID="navbar"]').should('exist')
