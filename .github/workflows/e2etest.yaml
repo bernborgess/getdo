@@ -10,7 +10,22 @@ jobs:
       matrix:
         # os: [ubuntu-latest, macos-latest, windows-latest]
         os: [ubuntu-latest]
+
+    defaults:
+      run:
+        working-directory: api
+      run2:
+        working-directory: client
     steps:
+      - name: Install Npm Packages
+        run: npm i
+        run2: npm i
+    
+      - name: Init backend
+        run: npm i
+      
+      - name: Init frontend
+        run2: npm i
       - name: Checkout
         uses: actions/checkout@v4
       - name: Cypress run
