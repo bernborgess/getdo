@@ -1,4 +1,4 @@
-describe('check create a new task ', () => {
+describe('Check create a new task ', () => {
   beforeEach(()=>{
     cy.visit('http://127.0.0.1:5173/newTask')
   });
@@ -19,7 +19,7 @@ describe('check create a new task ', () => {
   });
   it('verifica se a task criada está na tabela', () => {
     cy.visit('http://127.0.0.1:5173/')
-    cy.wait(500)
+    cy.wait(700)
     cy.contains('Teste cypress')
     cy.contains('We are testing the creation of a task with Cypress')
     cy.contains('2')

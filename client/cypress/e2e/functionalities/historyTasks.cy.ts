@@ -1,4 +1,4 @@
-describe('check create a new task ', () => {
+describe('Check move a task for history', () => {
   beforeEach(()=>{
     cy.visit('http://127.0.0.1:5173/')
 
