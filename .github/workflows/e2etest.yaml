@@ -16,7 +16,15 @@ jobs:
         working-directory: api
       run2:
         working-directory: client
+
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
       - name: Install Npm Packages
         run: npm i
         run2: npm i
@@ -26,10 +34,3 @@ jobs:
       
       - name: Init frontend
         run2: npm i
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
