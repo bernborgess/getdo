@@ -4,27 +4,14 @@ on: push
 
 jobs:
   cypress-run:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        # os: [ubuntu-latest, macos-latest, windows-latest]
-        os: [ubuntu-latest]
-    defaults:
-      run:
-        working-directory: api
-      start:
-        working-directory: client
-
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
       - name: Checkout
-      - name: Install Npm Packages
-        start: npm i
-        run: npm i
-      - name: Init backend
-        run: npm run dev
-      - name: Init frontend
-        start: npm run dev
+        uses: actions/checkout@v4
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
       - name: Cypress run
-        start: npx cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
