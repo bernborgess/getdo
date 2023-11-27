@@ -24,6 +24,4 @@ jobs:
       - name: Init frontend
         start: npm run dev
       - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npx run cypress
+        start: npx cypress run
