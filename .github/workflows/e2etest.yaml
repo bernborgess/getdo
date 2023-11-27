@@ -28,7 +28,7 @@ jobs:
         working-directory: api
       
       - name: Init frontend
-        run2: npm run dev
+        run: npm run dev
         working-directory: client
 
       - name: Cypress run
