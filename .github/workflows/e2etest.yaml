@@ -32,8 +32,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
-          start: npm start
           - name: Init backend
             run: npm run dev
             working-directory: api
@@ -41,3 +39,5 @@ jobs:
           - name: Init frontend
             run: npm run dev
             working-directory: client
+          - build: npm run build
+          - start: npm start
