@@ -3,8 +3,13 @@ name: Cypress Tests
 on: [push]
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  cypress-run::
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
     defaults:
       run:
         working-directory: api
@@ -12,10 +17,8 @@ jobs:
         working-directory: client
 
     steps:
+      - uses: actions/checkout@v4
       - name: Checkout
-        uses: actions/checkout@v4
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
       - name: Install Npm Packages
         start: npm i
         run: npm i
