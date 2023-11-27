@@ -25,4 +25,9 @@ describe('check create a new task ', () => {
     cy.contains('4')
     cy.contains('11/12/2023')
   })
+  it('deleta task', () => {
+    cy.visit('http://127.0.0.1:5173/')
+    cy.contains('td', 'Teste cypress').parent('tr').children('td').find('button').first().click()
+    cy.wait(500)
+  })
 })
