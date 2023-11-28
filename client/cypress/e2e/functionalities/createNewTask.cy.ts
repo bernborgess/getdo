@@ -1,6 +1,6 @@
 describe('Check create a new task ', () => {
   beforeEach(()=>{
-    cy.visit('http://127.0.0.1:5173/newTask')
+    cy.visit('http://localhost:5173/newTask')
   });
 
   it('preenchendo e enviando dados do formulário', () => {
@@ -18,7 +18,7 @@ describe('Check create a new task ', () => {
     cy.get('[data-testID="button-form"]').click()
   });
   it('verifica se a task criada está na tabela', () => {
-    cy.visit('http://127.0.0.1:5173/')
+    cy.visit('http://localhost:5173/')
     cy.wait(700)
     cy.contains('Teste cypress')
     cy.contains('We are testing the creation of a task with Cypress')
