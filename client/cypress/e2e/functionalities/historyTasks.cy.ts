@@ -1,11 +1,11 @@
 describe('Check move a task for history', () => {
   beforeEach(()=>{
-    cy.visit('http://127.0.0.1:5173/')
+    cy.visit('http://localhost:5173/')
 
   });
 
   it('cria nova task', () => {
-    cy.visit('http://127.0.0.1:5173/newTask')
+    cy.visit('http://localhost:5173/newTask')
     cy.wait(500)
     cy.get('[data-testID="form-input-title"]').type('Teste cypress for history')
     cy.wait(500)
