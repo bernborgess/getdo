@@ -9,7 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors({
-    origin: process.env.APP_URL,
     credentials: true
 }));
 app.use(router);
