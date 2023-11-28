@@ -34,7 +34,5 @@ jobs:
         with:
           working-directory: client
           start: |
-            cd api
-            npm run dev
-            cd ../client
+            npm run dev --prefix ../api
             npm run dev
