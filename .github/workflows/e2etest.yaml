@@ -32,9 +32,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
+          working-directory: client
           start: |
             cd api
-            npm start
+            npm run dev
             cd ../client
-            npm start
+            npm run dev
