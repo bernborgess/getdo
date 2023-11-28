@@ -9,7 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors({
-    credentials: true
+    origin: "*",
+    credentials: false
 }));
 app.use(router);
 
