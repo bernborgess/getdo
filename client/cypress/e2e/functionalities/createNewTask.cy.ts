@@ -24,7 +24,7 @@ describe('Check create a new task ', () => {
     cy.contains('We are testing the creation of a task with Cypress')
     cy.contains('2')
     cy.contains('4')
-    cy.contains('11/12/2023')
+    cy.contains('12/12/2023')
     cy.wait(500)
     cy.contains('td', 'Teste cypress').parent('tr').children('td').find('button').first().click()
     cy.wait(500)
