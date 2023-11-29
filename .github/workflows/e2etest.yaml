@@ -30,6 +30,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          browser: chrome
           working-directory: client
           start: |
             npm run dev --prefix ../api
