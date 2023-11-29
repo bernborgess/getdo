@@ -1,5 +1,5 @@
 describe('Check move a task for history', () => {
-  beforeEach(()=>{
+  beforeEach(() => {
     cy.visit('http://localhost:5173/')
 
   });
@@ -25,7 +25,7 @@ describe('Check move a task for history', () => {
     cy.contains('2')
     cy.contains('4')
     cy.contains('12/12/2023')
-    cy.wait(500)
+    cy.wait(2000)
   })
   it('marca a task como concluída', () => {
     cy.contains('td', 'Teste cypress for history').parent('tr').children('td').find('button').last().click()
