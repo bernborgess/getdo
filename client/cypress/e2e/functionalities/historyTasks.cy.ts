@@ -20,12 +20,13 @@ describe('Check move a task for history', () => {
     cy.contains('Save').click()
   });
   it('verifica se a task criada está na tabela', () => {
+    cy.wait(10000)
     cy.contains('Teste cypress for history')
     cy.contains('We are testing the history of a task with Cypress')
     cy.contains('2')
     cy.contains('4')
     cy.contains('12/12/2023')
-    cy.wait(2000)
+    cy.wait(10000)
   })
   it('marca a task como concluída', () => {
     cy.contains('td', 'Teste cypress for history').parent('tr').children('td').find('button').last().click()
