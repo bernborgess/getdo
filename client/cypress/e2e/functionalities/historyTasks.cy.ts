@@ -24,7 +24,7 @@ describe('Check move a task for history', () => {
     cy.contains('We are testing the history of a task with Cypress')
     cy.contains('2')
     cy.contains('4')
-    cy.contains('11/12/2023')
+    cy.contains('12/12/2023')
     cy.wait(500)
   })
   it('marca a task como concluída', () => {
