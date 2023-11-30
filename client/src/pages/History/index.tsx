@@ -47,7 +47,7 @@ export function History() {
 
             <Card sx={{ height: '100%' }}>
               <Box sx={{ minWidth: 800 }}>
-                <Table>
+                <Table data-testID="table">
                   <TableHead>
                     <TableRow>
                       <TableCell>

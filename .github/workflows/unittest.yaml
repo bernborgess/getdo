@@ -1,4 +1,4 @@
-name: Auto Tests
+name: Unit Tests
 
 on: 
   push:
@@ -11,8 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        # os: [ubuntu-latest, macos-latest, windows-latest]
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [20.x]
       
     defaults:

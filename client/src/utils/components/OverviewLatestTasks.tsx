@@ -54,7 +54,7 @@ export default function OverviewLatestTasks() {
       <CardHeader title="Latest Tasks"
         action={(
 
-          <Button
+          <Button data-testID="button-createTask"
             color="secondary"
             size="small"
             onClick={() => navigate("newTask")}
@@ -105,14 +105,14 @@ export default function OverviewLatestTasks() {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody data-testID="tbody">
             {tasks.map((task) => {
               return (
-                <TableRow
+                <TableRow data-testID="tbody-tr"
                   hover
                   key={task.id}
                 >
-                  <TableCell>
+                  <TableCell data-testID="tbody-tr-td">
                     <Typography
                       color="text.secondary"
                       gutterBottom
@@ -172,7 +172,7 @@ export default function OverviewLatestTasks() {
       </Box>
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
-        <Button
+        <Button data-testID="button-history"
           color="inherit"
           endIcon={(
             <SvgIcon fontSize="small">
